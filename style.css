@@ -1,0 +1,97 @@
+/* General dark mode background & text */
+body {
+  background: #141A23;
+  color: #E4E7ED;
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* Bubble headers */
+h1, h2 {
+  background: #212C3B;
+  color: #F6C945;
+  padding: 0.6em 1.6em;
+  border-radius: 2em;
+  text-align: center;
+  margin: 2rem auto 1rem auto;
+  max-width: 600px;
+  box-shadow: 0 2px 12px #10151d70;
+  letter-spacing: 2px;
+}
+
+/* Bubbly sections */
+.container {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+section {
+  background: #1B2433;
+  border-radius: 1.5em;
+  padding: 1.5em 2em;
+  min-width: 290px;
+  box-shadow: 0 3px 20px #10151d55;
+  margin-bottom: 1.5rem;
+}
+
+/* Stock cards "bubble" style */
+.stock-card {
+  background: #232F41;
+  color: #E4E7ED;
+  margin: 1em 0;
+  padding: 1.1em;
+  border-radius: 1.2em;
+  box-shadow: 0 2px 8px #10151d90;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75em;
+}
+
+/* Bubble buttons */
+button {
+  font-size: 1em;
+  padding: 0.5em 1.3em;
+  border: none;
+  border-radius: 2em;
+  margin: 0 0.2em;
+  background: linear-gradient(90deg, #F6C945, #D8853F 90%);
+  color: #25293C;
+  font-weight: 600;
+  box-shadow: 0 1px 6px #212C3B50;
+  transition: background 0.2s, transform 0.12s;
+  cursor: pointer;
+}
+
+button:hover, button:focus {
+  background: linear-gradient(90deg, #FAD961, #F76B1C 90%);
+  transform: scale(1.07);
+  outline: none;
+}
+
+#portfolio {
+  margin-top: 1rem;
+}
+
+#portfolio strong, #portfolio li {
+  color: #F3B73D;
+}
+
+/* List within portfolio styled more like bubbles */
+#portfolio ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.2em 0 0 0;
+}
+#portfolio li {
+  background: #232F41;
+  border-radius: 2em;
+  display: inline-block;
+  margin: 0.2em 0.7em 0.2em 0;
+  padding: 0.4em 1em;
+  font-size: 1em;
+}
