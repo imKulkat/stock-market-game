@@ -1,97 +1,154 @@
-/* General dark mode background & text */
+/* DARK BACKGROUND & BASE TEXT */
 body {
-  background: #141A23;
-  color: #E4E7ED;
+  background: #161B22;
+  color: #EBEEF2;
   font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
   margin: 0;
   min-height: 100vh;
 }
 
-/* Bubble headers */
+/* BUBBLE HEADERS */
 h1, h2 {
-  background: #212C3B;
-  color: #F6C945;
-  padding: 0.6em 1.6em;
+  background: #252C38;
+  color: #FFD45C;
+  padding: 0.7em 2em;
   border-radius: 2em;
   text-align: center;
   margin: 2rem auto 1rem auto;
-  max-width: 600px;
-  box-shadow: 0 2px 12px #10151d70;
-  letter-spacing: 2px;
+  box-shadow: 0 2px 16px #0007;
+  letter-spacing: 1.5px;
+  font-weight: 700;
 }
 
-/* Bubbly sections */
-.container {
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
-  margin-top: 2rem;
-  flex-wrap: wrap;
+h2 {
+  background: #252C38ca; /* more subtle for section headers */
+  color: #FFEA92;
+  padding: 0.5em 1em;
+  font-size: 1.15em;
+  margin-top: 1.7em;
 }
 
-section {
-  background: #1B2433;
-  border-radius: 1.5em;
-  padding: 1.5em 2em;
-  min-width: 290px;
-  box-shadow: 0 3px 20px #10151d55;
-  margin-bottom: 1.5rem;
+/* TABS & BUBBLE TAB BUTTONS */
+.tabs {
+  text-align: center;
+  margin: 2em 0 1.5em 0;
 }
 
-/* Stock cards "bubble" style */
-.stock-card {
-  background: #232F41;
-  color: #E4E7ED;
+.tablink {
+  display: inline-block;
+  border: none;
+  background: #242A35;
+  color: #FFD45C;
+  padding: 0.7em 2em;
+  margin: 0 0.5em;
+  border-radius: 2em 2em 0 0;
+  font-size: 1.15em;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #0005;
+  transition: background 0.18s, color 0.18s;
+  position: relative;
+  top: 5px;
+  outline: none;
+}
+
+.tablink.active {
+  background: #FFD45C;
+  color: #222;
+  box-shadow: 0 4px 24px #1119;
+  z-index: 2;
+}
+
+/* TAB PANELS */
+.tab-content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.tab-pane {
+  display: none;
+}
+
+.tab-pane.active {
+  display: block;
+}
+
+/* CARDS FOR STOCKS */
+#stocks .stock-card {
+  background: #20242E;
+  color: inherit;
   margin: 1em 0;
-  padding: 1.1em;
-  border-radius: 1.2em;
-  box-shadow: 0 2px 8px #10151d90;
+  padding: 1.2em 1em;
+  border-radius: 1.3em;
+  box-shadow: 0 2px 8px #0005;
   display: flex;
   align-items: center;
+  gap: 1.1em;
   justify-content: space-between;
-  gap: 0.75em;
 }
 
-/* Bubble buttons */
-button {
+/* BUBBLE BUTTONS */
+button, .bubble-btn {
   font-size: 1em;
   padding: 0.5em 1.3em;
   border: none;
   border-radius: 2em;
-  margin: 0 0.2em;
-  background: linear-gradient(90deg, #F6C945, #D8853F 90%);
-  color: #25293C;
+  margin: 0 0.25em;
+  background: linear-gradient(90deg, #FFD45C, #FFB347 90%);
+  color: #252C38;
   font-weight: 600;
-  box-shadow: 0 1px 6px #212C3B50;
-  transition: background 0.2s, transform 0.12s;
+  box-shadow: 0 1px 6px #242A3520;
+  transition: background 0.16s, transform 0.12s;
   cursor: pointer;
 }
 
-button:hover, button:focus {
-  background: linear-gradient(90deg, #FAD961, #F76B1C 90%);
+button:hover, button:focus, .bubble-btn:hover, .bubble-btn:focus {
+  background: linear-gradient(90deg, #FFF6A0, #FF8437 90%);
   transform: scale(1.07);
   outline: none;
 }
 
 #portfolio {
-  margin-top: 1rem;
+  margin-top: 1.3em;
 }
 
 #portfolio strong, #portfolio li {
-  color: #F3B73D;
+  color: #FFD45C;
 }
 
-/* List within portfolio styled more like bubbles */
+/* BUBBLE LIST FOR PORTFOLIO */
 #portfolio ul {
   list-style: none;
   padding: 0;
-  margin: 0.2em 0 0 0;
+  margin: 0.25em 0 0 0;
 }
 #portfolio li {
-  background: #232F41;
+  background: #232A37;
   border-radius: 2em;
   display: inline-block;
-  margin: 0.2em 0.7em 0.2em 0;
-  padding: 0.4em 1em;
+  margin: 0.22em 0.65em 0.22em 0;
+  padding: 0.45em 1em;
   font-size: 1em;
+  color: #FFD45C;
+}
+
+/* UTILITY: Remove button focus border for nicer look */
+button:focus-visible, .tablink:focus-visible {
+  outline: 2px solid #FFD45C99;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  h1, h2 {
+    font-size: 1.1em;
+    padding: 0.5em 0.6em;
+  }
+  .tab-content {
+    padding: 0 1em;
+  }
+  .stock-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5em;
+  }
 }
