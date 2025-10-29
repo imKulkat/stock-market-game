@@ -1,154 +1,283 @@
-/* DARK BACKGROUND & BASE TEXT */
+/* --- GLOBAL / BACKGROUND --- */
 body {
-  background: #161B22;
-  color: #EBEEF2;
+  background: #181f29;
+  color: #f0f4fa;
   font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
   margin: 0;
   min-height: 100vh;
 }
 
-/* BUBBLE HEADERS */
-h1, h2 {
-  background: #252C38;
-  color: #FFD45C;
-  padding: 0.7em 2em;
+/* --- BUBBLE HEADER STYLES --- */
+h1 {
+  background: #262f3e;
+  color: #ffd75a;
+  padding: 1em 1.5em;
   border-radius: 2em;
   text-align: center;
-  margin: 2rem auto 1rem auto;
-  box-shadow: 0 2px 16px #0007;
-  letter-spacing: 1.5px;
+  margin: 2rem auto 2rem auto;
+  box-shadow: 0 2px 16px #000c;
+  letter-spacing: 1.2px;
   font-weight: 700;
+  width: fit-content;
+  max-width: 100%;
 }
-
-h2 {
-  background: #252C38ca; /* more subtle for section headers */
-  color: #FFEA92;
-  padding: 0.5em 1em;
-  font-size: 1.15em;
-  margin-top: 1.7em;
+h2, h3, h4 {
+  background: #222a36c7;
+  color: #ffe082;
+  padding: 0.5em 1.3em;
+  border-radius: 1.3em;
+  font-weight: 600;
+  box-shadow: 0 1px 8px #1118;
+  width: fit-content;
+  margin: 2em auto 1em auto;
+  text-align: center;
 }
+h2 {font-size: 1.35em;}
+h3, h4 {font-size: 1.1em; margin-top: 1.1em;}
 
-/* TABS & BUBBLE TAB BUTTONS */
+/* --- BUBBLE TABS --- */
 .tabs {
   text-align: center;
-  margin: 2em 0 1.5em 0;
+  margin: 2em 0 1em 0;
 }
 
 .tablink {
   display: inline-block;
+  background: #222a36;
+  color: #ffd75a;
   border: none;
-  background: #242A35;
-  color: #FFD45C;
-  padding: 0.7em 2em;
-  margin: 0 0.5em;
+  outline: none;
+  padding: 0.7em 2.1em;
+  margin: 0 0.32em;
   border-radius: 2em 2em 0 0;
-  font-size: 1.15em;
+  font-size: 1.1em;
   font-weight: 600;
   cursor: pointer;
   box-shadow: 0 2px 8px #0005;
-  transition: background 0.18s, color 0.18s;
+  transition: background 0.18s, color 0.18s, box-shadow 0.14s;
   position: relative;
-  top: 5px;
-  outline: none;
+  top: 4px;
 }
 
 .tablink.active {
-  background: #FFD45C;
-  color: #222;
-  box-shadow: 0 4px 24px #1119;
+  background: linear-gradient(90deg, #ffd75a, #ff9f34 90%);
+  color: #23242f;
+  box-shadow: 0 4px 18px #0009;
   z-index: 2;
 }
 
-/* TAB PANELS */
+/* --- TAB PANELS & PANELS --- */
 .tab-content {
-  max-width: 700px;
+  max-width: 850px;
   margin: 0 auto;
 }
 
 .tab-pane {
   display: none;
+  padding: 1em 1em 2em 1em;
+  box-sizing: border-box;
 }
 
 .tab-pane.active {
   display: block;
 }
 
-/* CARDS FOR STOCKS */
-#stocks .stock-card {
-  background: #20242E;
-  color: inherit;
-  margin: 1em 0;
-  padding: 1.2em 1em;
-  border-radius: 1.3em;
-  box-shadow: 0 2px 8px #0005;
-  display: flex;
-  align-items: center;
-  gap: 1.1em;
-  justify-content: space-between;
+.bubble-panel, #events-area {
+  background: #202640f4;
+  border-radius: 1.6em;
+  padding: 1.2em 1.4em;
+  box-shadow: 0 2px 14px #1118;
+  margin: 1em auto 1.4em auto;
+  width: 96%;
+  max-width: 600px;
 }
 
-/* BUBBLE BUTTONS */
+#company-info h3 {
+  margin-top: 0;
+  margin-bottom: 0.8em;
+  background: transparent;
+  box-shadow: none;
+  font-weight: bold;
+  color: #ffd75a;
+}
+
+/* --- BUBBLE BUTTONS & FORMS --- */
 button, .bubble-btn {
   font-size: 1em;
-  padding: 0.5em 1.3em;
+  letter-spacing: 0.2px;
+  padding: 0.53em 1.3em;
   border: none;
   border-radius: 2em;
-  margin: 0 0.25em;
-  background: linear-gradient(90deg, #FFD45C, #FFB347 90%);
-  color: #252C38;
+  margin: 0.2em 0.2em;
+  background: linear-gradient(90deg, #ffd75a, #ffb155 90%);
+  color: #23242f;
   font-weight: 600;
-  box-shadow: 0 1px 6px #242A3520;
-  transition: background 0.16s, transform 0.12s;
+  box-shadow: 0 1px 5px #212c3b30;
+  transition: background 0.15s, transform 0.11s, color 0.11s;
   cursor: pointer;
 }
 
-button:hover, button:focus, .bubble-btn:hover, .bubble-btn:focus {
-  background: linear-gradient(90deg, #FFF6A0, #FF8437 90%);
+button:hover, button:focus, .bubble-btn:hover {
+  background: linear-gradient(90deg, #ffec99, #ff8437 90%);
   transform: scale(1.07);
+  color: #202640;
   outline: none;
 }
 
+input[type="text"], input[type="number"] {
+  border-radius: 1.4em;
+  border: none;
+  background: #252e3d;
+  color: #ffd75a;
+  font-size: 1.08em;
+  padding: 0.57em 1.15em;
+  margin-top: 0.1em;
+  box-shadow: 0 1px 8px #181f2940;
+  width: 90%;
+  outline: none;
+}
+
+input[type="text"]:focus, input[type="number"]:focus {
+  background: #2a3546;
+  color: #ffe082;
+}
+
+label { display: block; font-weight: 500; margin-bottom: 1em; color: #f8e99d; }
+
+form { margin-top: 1em; }
+
+#new-company-form {
+  margin: 1.5em auto 1em auto;
+  max-width: 440px;
+}
+
+#company-actions {
+  margin-bottom: 1em;
+}
+#company-outcome {
+  margin-bottom: 0.6em;
+  background: #293763fa;
+  color: #ffd75a;
+  border-radius: 1.2em;
+  text-align: center;
+  padding: 0.6em 0.7em;
+  min-height: 2em;
+  transition: background 0.18s;
+}
+
+.bubble-btn {
+  background: linear-gradient(90deg, #ffd75a, #ffb155 90%);
+}
+
+.bubble-btn:hover {
+  background: linear-gradient(90deg, #fff5b0, #ff8437 90%);
+}
+
+.stock-card {
+  background: #23293aef;
+  color: inherit;
+  margin: 1.2em 0;
+  padding: 1.17em 0.82em;
+  border-radius: 1.4em;
+  box-shadow: 0 2px 8px #1119;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.1em;
+  border-left: 5px solid #FFD45C;
+  transition: box-shadow 0.13s, border-color 0.18s;
+}
+
+.stock-card:hover {
+  box-shadow: 0 4px 40px #ffd75a30;
+  border-color: #ffd75a;
+}
+
+/* --- PORTFOLIO LIST --- */
 #portfolio {
   margin-top: 1.3em;
 }
-
 #portfolio strong, #portfolio li {
-  color: #FFD45C;
+  color: #ffd75a;
 }
 
-/* BUBBLE LIST FOR PORTFOLIO */
 #portfolio ul {
   list-style: none;
   padding: 0;
-  margin: 0.25em 0 0 0;
+  margin: 0.22em 0 0 0;
 }
 #portfolio li {
-  background: #232A37;
+  background: #253151fa;
   border-radius: 2em;
   display: inline-block;
-  margin: 0.22em 0.65em 0.22em 0;
-  padding: 0.45em 1em;
+  margin: 0.18em 0.7em 0.18em 0;
+  padding: 0.37em 1.04em;
   font-size: 1em;
-  color: #FFD45C;
+  color: #ffe082;
 }
 
-/* UTILITY: Remove button focus border for nicer look */
-button:focus-visible, .tablink:focus-visible {
-  outline: 2px solid #FFD45C99;
+/* --- EVENTS AREA --- */
+#events-area {
+  min-height: 2em;
+  padding-bottom: 0.7em;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-  h1, h2 {
-    font-size: 1.1em;
-    padding: 0.5em 0.6em;
-  }
-  .tab-content {
-    padding: 0 1em;
-  }
-  .stock-card {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5em;
-  }
+.event-bubble {
+  background: #263659ef;
+  border-left: 5px solid #ffec99;
+  border-radius: 1.1em;
+  box-shadow: 0 2px 8px #1117;
+  margin-bottom: 1em;
+  padding: 0.7em 1.2em 0.7em 1.1em;
+  color: #ffe295;
+  font-weight: 500;
+  font-size: 1em;
+  line-height: 1.35;
+  display: flex;
+  align-items: center;
+  gap: 0.9em;
+  word-break: break-word;
 }
+.event-bubble .stamp {
+  color: #ffd75a;
+  background: #222a36cc;
+  font-size: 0.95em;
+  font-family: monospace;
+  padding: 0.2em 0.7em;
+  border-radius: 1em;
+}
+
+.event-bubble.market { border-left-color: #ffd75a; }
+.event-bubble.company { border-left-color: #ff9f55; }
+.event-bubble.info { border-left-color: #75e0e2; }
+
+@media (max-width: 700px) {
+  h1 { font-size: 1.19em; }
+  .tab-content { padding: 0 0.2em; }
+  #stocks, .bubble-panel { max-width: 100vw; }
+  .stock-card { flex-direction: column; align-items: flex-start; gap: 0.35em; }
+}
+
+/* --- EMBEDDED GRAPHS --- */
+#market-graph-section, #yourCompanyChart {
+  width: 100%;
+  max-width: 640px;
+  margin: 0.5em auto 1.5em auto;
+  background: #202640f8;
+  border-radius: 1.5em;
+  box-shadow: 0 2px 16px #113b;
+  padding: 0.2em 1em 0.7em 1em;
+}
+
+canvas {
+  display: block;
+  margin: 0 auto;
+  border-radius: 1.2em;
+  background: #232d45;
+  box-shadow: 0 2px 12px #0005;
+}
+
+::-webkit-input-placeholder { color: #ffc846; opacity: 0.55; }
+::-moz-placeholder { color: #ffc846; opacity: 0.55; }
+:-ms-input-placeholder { color: #ffc846; opacity: 0.55; }
+::placeholder { color: #ffc846; opacity: 0.55; }
