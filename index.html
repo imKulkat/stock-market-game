@@ -8,15 +8,13 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <h1>Stock Market Simulator <span class="mode-indicator">Competitive Mode</span></h1>
+  <h1>Stock Market Simulator</h1>
 
   <nav class="tabs">
     <button class="tablink active" onclick="showTab('market')">Market</button>
     <button class="tablink" onclick="showTab('portfolio')">Portfolio</button>
     <button class="tablink" onclick="showTab('company')">Your Company</button>
     <button class="tablink" onclick="showTab('events')">Events</button>
-    <button class="tablink" onclick="showTab('leaderboard')">Leaderboard</button>
-    <button class="tablink" onclick="showTab('players')">Players</button>
   </nav>
 
   <main class="tab-content">
@@ -41,6 +39,7 @@
     <!-- YOUR COMPANY TAB -->
     <section id="company-tab" class="tab-pane">
       <h2>Your Company</h2>
+      <!-- Only shown if company not yet created and you have enough cash -->
       <div id="new-company-form">
         <form onsubmit="event.preventDefault(); createCompany();">
           <label>
@@ -64,7 +63,7 @@
           </label>  
   
 
-          <button type="submit" id="createCompanyBtn">Create Company ($100,000)</button>
+          <button type="submit" id="createCompanyBtn">Create Company ($100,000 required)</button>
         </form>
       </div>
       <div id="company-info" style="display:none;">
@@ -83,18 +82,6 @@
     <section id="events-tab" class="tab-pane">
       <h2>Market Events</h2>
       <div id="events-area" class="bubble-panel"></div>
-    </section>
-
-    <!-- LEADERBOARD TAB -->
-    <section id="leaderboard-tab" class="tab-pane">
-      <h2>Leaderboard</h2>
-      <div id="leaderboard-area" class="bubble-panel"></div>
-    </section>
-
-    <!-- PLAYERS TAB -->
-    <section id="players-tab" class="tab-pane">
-      <h2>Players (Competitive)</h2>
-      <div id="players-area" class="bubble-panel"></div>
     </section>
 
   </main>
