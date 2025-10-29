@@ -2,21 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Stock Market Simulator</title>
+  <title>Stock Market Simulator – Competitive</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
-  <!-- Chart.js for graphing -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <h1>Stock Market Simulator</h1>
+  <h1>Stock Market Simulator <span class="mode-indicator">Competitive Mode</span></h1>
 
-  <!-- Tabs for navigation -->
   <nav class="tabs">
     <button class="tablink active" onclick="showTab('market')">Market</button>
     <button class="tablink" onclick="showTab('portfolio')">Portfolio</button>
     <button class="tablink" onclick="showTab('company')">Your Company</button>
     <button class="tablink" onclick="showTab('events')">Events</button>
+    <button class="tablink" onclick="showTab('leaderboard')">Leaderboard</button>
+    <button class="tablink" onclick="showTab('players')">Players</button>
   </nav>
 
   <main class="tab-content">
@@ -24,7 +24,7 @@
     <section id="market-tab" class="tab-pane active">
       <h2>Market Overview</h2>
       <div id="market-graph-section">
-        <canvas id="stockChart" height="240"></canvas>
+        <canvas id="stockChart" height="220"></canvas>
       </div>
       <div id="stocks"></div>
     </section>
@@ -32,40 +32,50 @@
     <!-- PORTFOLIO TAB -->
     <section id="portfolio-tab" class="tab-pane">
       <h2>Your Portfolio</h2>
+      <div class="portfolio-charts">
+        <canvas id="portfolioPie" height="180"></canvas>
+      </div>
       <div id="portfolio"></div>
     </section>
 
     <!-- YOUR COMPANY TAB -->
     <section id="company-tab" class="tab-pane">
       <h2>Your Company</h2>
-      <!-- Show this only if company NOT created -->
       <div id="new-company-form">
         <form onsubmit="event.preventDefault(); createCompany();">
           <label>
-            Company Name<br>
+            Company Name  
+
             <input required type="text" id="companyName" maxlength="20" placeholder="Your company...">
-          </label><br><br>
+          </label>  
+  
+
           <label>
-            Description<br>
+            Description  
+
             <input required type="text" id="companyDesc" maxlength="32" placeholder="e.g. Next-gen energy">
-          </label><br><br>
+          </label>  
+  
+
           <label>
-            Initial Stock Price<br>
+            Initial Stock Price  
+
             <input required type="number" id="companyPrice" min="1" max="5000" value="100">
-          </label><br><br>
-          <button type="submit">Create Company</button>
+          </label>  
+  
+
+          <button type="submit" id="createCompanyBtn">Create Company ($100,000)</button>
         </form>
       </div>
-      <!-- Info and management area shown after creation -->
       <div id="company-info" style="display:none;">
         <div class="bubble-panel">
             <h3><span id="yourCompanyName"></span> — $<span id="yourCompanyPrice"></span></h3>
             <div id="yourCompanyDesc"></div>
         </div>
-        <h4>Decisions</h4>
+        <h4>Decisions <span id="companyActionsCooldown"></span></h4>
         <div id="company-actions" class="bubble-panel"></div>
         <div id="company-outcome" class="bubble-panel"></div>
-        <canvas id="yourCompanyChart" height="170"></canvas>
+        <canvas id="yourCompanyChart" height="150"></canvas>
       </div>
     </section>
 
@@ -74,6 +84,19 @@
       <h2>Market Events</h2>
       <div id="events-area" class="bubble-panel"></div>
     </section>
+
+    <!-- LEADERBOARD TAB -->
+    <section id="leaderboard-tab" class="tab-pane">
+      <h2>Leaderboard</h2>
+      <div id="leaderboard-area" class="bubble-panel"></div>
+    </section>
+
+    <!-- PLAYERS TAB -->
+    <section id="players-tab" class="tab-pane">
+      <h2>Players (Competitive)</h2>
+      <div id="players-area" class="bubble-panel"></div>
+    </section>
+
   </main>
 
   <script src="main.js"></script>
