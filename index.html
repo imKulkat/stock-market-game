@@ -9,23 +9,23 @@
 <body>
   <h1>Stock Market Simulator</h1>
   
-  <div class="container">
-    <!-- Area to display stocks and prices -->
-    <section id="stocks-section">
+  <nav class="tabs">
+    <button class="tablink active" onclick="showTab('market')">Market</button>
+    <button class="tablink" onclick="showTab('portfolio')">Portfolio</button>
+  </nav>
+  
+  <main class="tab-content">
+    <section id="market-tab" class="tab-pane active">
       <h2>Stocks</h2>
       <div id="stocks"></div>
     </section>
-    
-    <!-- Area to display the player's portfolio -->
-    <section id="portfolio-section">
+    <section id="portfolio-tab" class="tab-pane">
       <h2>Your Portfolio</h2>
       <div id="portfolio"></div>
     </section>
-  </div>
-  
-  <!-- Game controls, as needed -->
-  <div id="controls"></div>
+  </main>
   
   <script src="main.js"></script>
 </body>
+</html>
 </html>
