@@ -30,12 +30,12 @@
     <!-- PORTFOLIO TAB -->
     <section id="portfolio-tab" class="tab-pane">
       <h2>Your Portfolio</h2>
+      <!-- Pie chart placeholder, not implemented in JS but reserved -->
       <div class="portfolio-charts">
         <canvas id="portfolioPie" height="180"></canvas>
       </div>
       <div id="portfolio"></div>
     </section>
-
     <!-- YOUR COMPANY TAB -->
     <section id="company-tab" class="tab-pane">
       <h2>Your Company</h2>
@@ -43,33 +43,36 @@
       <div id="new-company-form">
         <form onsubmit="event.preventDefault(); createCompany();">
           <label>
-            Company Name  
-
+            Company Name
             <input required type="text" id="companyName" maxlength="20" placeholder="Your company...">
-          </label>  
-  
-
+          </label>
           <label>
-            Description  
-
+            Description
             <input required type="text" id="companyDesc" maxlength="32" placeholder="e.g. Next-gen energy">
-          </label>  
-  
-
+          </label>
           <label>
-            Initial Stock Price  
-
+            Initial Stock Price
             <input required type="number" id="companyPrice" min="1" max="5000" value="100">
-          </label>  
-  
-
+          </label>
+          <label>
+            Company Type
+            <select id="companyType">
+              <option value="Tech">Tech</option>
+              <option value="Food">Food</option>
+              <option value="Retail">Retail</option>
+              <option value="Automotive">Automotive</option>
+              <option value="Entertainment">Entertainment</option>
+              <option value="Finance">Finance</option>
+              <option value="Healthcare">Healthcare</option>
+            </select>
+          </label>
           <button type="submit" id="createCompanyBtn">Create Company ($100,000 required)</button>
         </form>
       </div>
       <div id="company-info" style="display:none;">
         <div class="bubble-panel">
-            <h3><span id="yourCompanyName"></span> — $<span id="yourCompanyPrice"></span></h3>
-            <div id="yourCompanyDesc"></div>
+          <h3><span id="yourCompanyName"></span> — $<span id="yourCompanyPrice"></span></h3>
+          <div id="yourCompanyDesc"></div>
         </div>
         <h4>Decisions <span id="companyActionsCooldown"></span></h4>
         <div id="company-actions" class="bubble-panel"></div>
