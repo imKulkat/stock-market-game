@@ -56,8 +56,6 @@ const baseEvents = [
   { message: "Tech stocks soar after innovation report!", affect: () => techStockBoom() },
   { message: "Market correction: Investors cash out gains.", affect: () => allStockPercent(-0.03) },
   { message: "Market confidence up.", affect: () => allStockPercent(Math.random()*0.015) }
-  { message: "Global market crash.", affect: () => allStockPercent(-0.03-Math.random()*0.05) },
-  { message: "Massive wave of influx money", affect: () => allStockPercent(Math.random()*0.1) },
 ];
 
 function allStockPercent(delta) {
