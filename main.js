@@ -77,7 +77,7 @@ function getPortfolioValue() {
   if (yourCompany) value += yourCompany.held * yourCompany.price;
   return value;
 }
-
+const buySound = new Audio('sfx/kaching.mp3');
 // ====== BUY/SELL LOGIC ======
 window.buy = function(symbol) {
   let stock = getStockBySymbol(symbol);
@@ -89,6 +89,8 @@ window.buy = function(symbol) {
     stock.held = newHeld;
     stock.avgCost = newTotalSpent / newHeld;
     cash -= stock.price;
+    buySound.currentTime = 0;
+    buySound.play();
     render();
   } else alert("Not enough cash!");
 };
