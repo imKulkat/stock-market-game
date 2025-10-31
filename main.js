@@ -94,7 +94,7 @@ window.buy = function(symbol) {
     render();
   } else alert("Not enough cash!");
 };
-
+const SellSound = new Audio('sfx/sell.mp3');
 window.sell = function(symbol) {
   let stock = getStockBySymbol(symbol);
   if (stock.held > 0) {
@@ -112,6 +112,8 @@ window.sell = function(symbol) {
     // Selling has a minor impact on price
     stock.price *= 0.997 + Math.random()*0.006; 
     stock.price = Math.max(stock.price, 1);
+    SellSound.currentTime = 0;
+    SellSound.play();
     render();
   }
 };
