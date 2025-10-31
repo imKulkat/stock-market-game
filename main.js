@@ -22,7 +22,7 @@ const stocks = [
 ];
 
 let yourCompany = null; // { symbol, name, price, held, history, color, type }
-let cash = 1000; // Starting cash is now $1,000
+let cash = 100000; // Starting cash is now $1,000
 
 // ====== COMPANY TYPES AND COLORS ======
 const companyTypes = [
